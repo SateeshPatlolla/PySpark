@@ -1,2 +1,8 @@
-# PySpark
-PySpark Practice
+- **Spark Join Strategies**:
+  - **Broadcast Hash Join (BHJ)**:
+    - Also known as map-side-only join.
+    - Used when one dataset is small (fits in driver’s and executors’ memory) and another is large.
+    - Small dataset is broadcasted to all executors using Spark broadcast variable.
+    - Default threshold for broadcasting: 10 MB (configurable via `spark.sql.autoBroadcastJoinThreshold`).
+    - Fastest join, avoids data shuffling.
+    - Requires sufficient memory on both driver and executors.
